@@ -3,34 +3,24 @@ package main
 import (
 	"fmt"
 
-	"list"
+	"github.com/joaohsc/estrutura-de-dados-go/list"
 )
 
 func main() {
-	//var arraylist list.ArrayList
-	arraylist := list.ArrayList{}
-	limit := 15
-	arraylist.Init(limit)
+	call_arraylist()
 
-	for i := 0; i < limit; i++ {
-		arraylist.Add(i)
+}
+
+func call_arraylist() {
+	l := list.ArrayList{}
+	l.Init(10)
+
+	for i := 1; i <= 50; i++ {
+		l.Add(i)
 	}
-	for i := 0; i < limit; i++ {
-		val, err := arraylist.Get(i)
-		if err == nil {
-			fmt.Println(val)
-		}
-	}
-	for i := 0; i < limit; i++ {
-		if i%2 == 0 {
-			arraylist.Set(i*2, i)
-		}
-	}
-	fmt.Println("######################")
-	for i := 0; i < limit; i++ {
-		val, err := arraylist.Get(i)
-		if err == nil {
-			fmt.Println(val)
-		}
-	}
+	val, _ := l.Get(0)
+	fmt.Println("Valor na posicao 0: ", val)
+
+	val, _ = l.Get(49)
+	fmt.Println("Valor na posicao 49: ", val)
 }
