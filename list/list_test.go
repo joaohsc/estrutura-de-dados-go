@@ -57,7 +57,7 @@ func TestAddOnIndexBeginning(t *testing.T) {
 				t.Errorf("%T value on index 0 is %d, but we expected it to be %d", list, val, i)
 			}
 			if err != nil {
-				t.Errorf(err.Error())
+				t.Errorf("%s", err.Error())
 			}
 		}
 	}
@@ -77,7 +77,7 @@ func TestAddOnIndexEnd(t *testing.T) {
 				t.Errorf("%T value on index %d is %d, but we expected it to be %d", list, i, val, i)
 			}
 			if err != nil {
-				t.Errorf(err.Error())
+				t.Errorf("%s", err.Error())
 			}
 		}
 	}
@@ -109,7 +109,7 @@ func TestAddOnIndexMid(t *testing.T) {
 				}
 			}
 			if err != nil {
-				t.Errorf(err.Error())
+				t.Errorf("%s", err.Error())
 			}
 		}
 	}
@@ -128,7 +128,7 @@ func TestRemoveOnIndexBeginning(t *testing.T) {
 				t.Errorf("%T value on index 0 is %d, but we expected it to be %d", list, val, i)
 			}
 			if err != nil {
-				t.Errorf(err.Error())
+				t.Errorf("%s", err.Error())
 			}
 			list.RemoveOnIndex(0)
 			if list.Size() != size-i-1 {
@@ -151,7 +151,7 @@ func TestRemoveOnIndexEnd(t *testing.T) {
 				t.Errorf("%T value on index 0 is %d, but we expected it to be %d", list, val, i)
 			}
 			if err != nil {
-				t.Errorf(err.Error())
+				t.Errorf("%s", err.Error())
 			}
 			list.RemoveOnIndex(i)
 			if list.Size() != i {
@@ -176,7 +176,7 @@ func TestRemoveOnIndexMid(t *testing.T) {
 				t.Errorf("%T value on index %d is %d, but we expected it to be %d", list, i, val, i+1)
 			}
 			if err != nil {
-				t.Errorf(err.Error())
+				t.Errorf("%s", err.Error())
 			}
 		}
 	}
@@ -210,7 +210,7 @@ func TestSet(t *testing.T) {
 				}
 			}
 			if err != nil {
-				t.Errorf(err.Error())
+				t.Errorf("%s", err.Error())
 			}
 		}
 	}

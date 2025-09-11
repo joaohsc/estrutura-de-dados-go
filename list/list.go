@@ -7,4 +7,5 @@ type IList interface {
 	Get(index int) (int, error)
 	Set(value int, index int) error
 	Size() int
+	Reverse()
 }
