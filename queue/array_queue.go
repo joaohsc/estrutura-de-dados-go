@@ -11,6 +11,8 @@ type ArrayQueue struct {
 func (q *ArrayQueue) Init(size int) error {
 	if size > 0 {
 		q.v = make([]int, size)
+		q.front = -1
+		q.rear = -1
 		return nil
 	} else {
 		return errors.New("Size <= 0")
