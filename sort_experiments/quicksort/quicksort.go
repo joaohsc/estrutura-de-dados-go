@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"math/rand"
+	"time"
 )
 
 func QuickSort(v []int, ini int, fim int) {
@@ -31,10 +32,16 @@ func Partition(v []int, ini int, fim int) int {
 	return pIndex
 }
 
-func main() {
-	v := []int{9, 3, 7, 1, 5, 2, 8, 4, 6}
-
+func measureTime() {
+	start := time.Now()
+	v := []int{1, 2, 3, 3, 4, 5, 6, 7}
 	fmt.Println("Antes:", v)
 	QuickSort(v, 0, len(v)-1)
 	fmt.Println("Depois:", v)
+	elapsed := time.Since(start)
+	fmt.Printf("%s: %v ms", "tempo:", elapsed.Milliseconds())
+}
+
+func main() {
+	measureTime()
 }

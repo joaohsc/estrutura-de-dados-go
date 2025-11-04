@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"time"
+)
 
 func CountingSort(v []int) []int {
 	if len(v) == 0 {
@@ -34,9 +37,16 @@ func CountingSort(v []int) []int {
 	return output
 }
 
-func main() {
-	v := []int{1, 2, 3, 3, 4, 5, 6, 7}
+func measureTime() {
+	start := time.Now()
+	v := []int{1, 4, 3, 3, 2, 5, 6, 15}
 	sorted := CountingSort(v)
 	fmt.Println("Vetor original:", v)
 	fmt.Println("Vetor ordenado:", sorted)
+	elapsed := time.Since(start)
+	fmt.Printf("%s: %v ms", "tempo:", elapsed.Milliseconds())
+}
+
+func main() {
+	measureTime()
 }

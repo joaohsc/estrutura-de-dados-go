@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"time"
+)
 
 func merge(v []int, e []int, d []int) {
 	indexV, indexE, indexD := 0, 0, 0
@@ -44,17 +47,31 @@ func mergeSort(v []int) {
 		mergeSort(v1)
 		mergeSort(v2)
 
-		fmt.Println("meio:", v[meio])
-		fmt.Println("esquerdo:", v1)
-		fmt.Println("direito:", v2)
-
 		merge(v, v1, v2)
 	}
 }
 
-func main() {
-	v := []int{7, 6, 5, 4, 3, 3, 2, 1}
-	fmt.Println("Antes da ordenação:", v)
+func measureTimecrescemte() {
+	start := time.Now()
+	v := []int{1, 2, 3, 4, 5, 6, 7, 8}
+	fmt.Println("Antes:", v)
 	mergeSort(v)
-	fmt.Println("Depois da ordenação:", v)
+	fmt.Println("Depois:", v)
+	elapsed := time.Since(start)
+	fmt.Printf("%s: %v ms", "tempo:", elapsed.Milliseconds())
+}
+
+func measureTimedecrescemte() {
+	start := time.Now()
+	v := []int{7, 6, 5, 4, 3, 3, 2, 1}
+	fmt.Println("Antes:", v)
+	mergeSort(v)
+	fmt.Println("Depois:", v)
+	elapsed := time.Since(start)
+	fmt.Printf("%s: %v ms", "tempo:", elapsed.Milliseconds())
+}
+
+func main() {
+	measureTimecrescemte()
+	measureTimedecrescemte()
 }
