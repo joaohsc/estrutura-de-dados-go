@@ -1,22 +1,20 @@
 package main
 
-import (
-	"fmt"
-	"math/rand"
-)
+import "fmt"
 
 func QuickSort(v []int, ini int, fim int) {
 	if ini < fim {
+		fmt.Println("ini, fim", ini, fim)
 		indexPivot := Partition(v, ini, fim)
+		fmt.Println("indexPivot", indexPivot)
 		QuickSort(v, ini, indexPivot-1)
+		fmt.Println("vetor esquerdo", v)
 		QuickSort(v, indexPivot+1, fim)
+		fmt.Println("vetor direito", v)
 	}
 }
 
 func Partition(v []int, ini int, fim int) int {
-	randIndex := ini + rand.Intn(fim-ini+1)
-	v[randIndex], v[fim] = v[fim], v[randIndex]
-
 	pivot := v[fim]
 	pIndex := ini
 
@@ -32,7 +30,7 @@ func Partition(v []int, ini int, fim int) int {
 }
 
 func main() {
-	v := []int{9, 3, 7, 1, 5, 2, 8, 4, 6}
+	v := []int{1, 2, 3, 3, 4, 5, 6, 7}
 
 	fmt.Println("Antes:", v)
 	QuickSort(v, 0, len(v)-1)

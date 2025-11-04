@@ -14,8 +14,6 @@ func CountingSort(v []int) []int {
 		}
 	}
 
-	fmt.Println("Valor máximo:", max)
-
 	count := make([]int, max+1)
 
 	for _, val := range v {
@@ -37,7 +35,7 @@ func CountingSort(v []int) []int {
 }
 
 func main() {
-	v := []int{3, 6, 2, 5, 4, 3, 7, 1, 1000000000}
+	v := []int{1, 2, 3, 3, 4, 5, 6, 7}
 	sorted := CountingSort(v)
 	fmt.Println("Vetor original:", v)
 	fmt.Println("Vetor ordenado:", sorted)
